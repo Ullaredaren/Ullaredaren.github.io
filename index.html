@@ -1,1 +1,406 @@
-test
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integritetspolicy - Ullaredaren</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Ljust tema */
+            --primary-color: #77C3D2;
+            --dark-color: #374957;
+            --white-color: #FEFFFF;
+            --text-primary: #374957;
+            --text-secondary: #6B7280;
+            --background: #F8FAFC;
+            --card-background: #FFFFFF;
+            --border-color: rgba(107, 114, 128, 0.2);
+            --shadow: rgba(0, 0, 0, 0.03);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Mörkt tema */
+                --primary-color: #314A57;
+                --dark-color: #EBEBEB;
+                --white-color: #252225;
+                --text-primary: #EBEBEB;
+                --text-secondary: #9CA3AF;
+                --background: #1F1F1F;
+                --card-background: #252225;
+                --border-color: rgba(156, 163, 175, 0.2);
+                --shadow: rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: var(--card-background);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .header .date {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .content-card {
+            background: var(--card-background);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .subsection-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 20px 0 12px 0;
+        }
+
+        p {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color)08, var(--primary-color)12);
+            border: 1px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            background: var(--card-background);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .contact-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .content-card {
+                padding: 24px 20px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Integritetspolicy</h1>
+            <div class="subtitle">Ullaredaren Shopping App</div>
+            <div class="date">Senast uppdaterad: December 2024</div>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">1. Inledning</div>
+            <p>Välkommen till Ullaredaren! Vi värnar om din integritet och är engagerade i att skydda dina personuppgifter. Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar din information när du använder vår shoppingapp.</p>
+            
+            <div class="highlight-box">
+                <p>🔒 Din integritet är viktig för oss. Vi samlar endast in den information som behövs för att ge dig den bästa shoppingupplevelsen.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">2. Information vi samlar in</div>
+            
+            <div class="subsection-title">Kontoinformation</div>
+            <ul>
+                <li>E-postadress (för inloggning och kontoskapande)</li>
+                <li>Användarnamn och profilbild (valfritt)</li>
+                <li>Lösenord (krypterat och säkert lagrat)</li>
+            </ul>
+
+            <div class="subsection-title">Shoppingdata</div>
+            <ul>
+                <li>Inköpslistor och produkter du lägger till</li>
+                <li>Produktbilder du tar eller laddar upp</li>
+                <li>Delningsinställningar för kundvagnar</li>
+                <li>Prishistorik och shoppingpreferenser</li>
+            </ul>
+
+            <div class="subsection-title">Teknisk information</div>
+            <ul>
+                <li>Enhetstyp och operativsystem</li>
+                <li>App-version och användningsstatistik</li>
+                <li>Kraschrapporter för att förbättra appen</li>
+                <li>Push-notifikationstoken (för meddelanden)</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">3. Hur vi använder din information</div>
+            
+            <p>Vi använder din information för att:</p>
+            <ul>
+                <li><strong>Tillhandahålla tjänsten:</strong> Hantera ditt konto och dina inköpslistor</li>
+                <li><strong>Förbättra upplevelsen:</strong> Personalisera innehåll och funktioner</li>
+                <li><strong>Kommunikation:</strong> Skicka viktiga uppdateringar och push-notifikationer</li>
+                <li><strong>Säkerhet:</strong> Skydda mot bedrägerier och missbruk</li>
+                <li><strong>Utveckling:</strong> Förbättra appen baserat på användningsdata</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>💡 Vi säljer aldrig din personliga information till tredje part. Din data används endast för att förbättra din shoppingupplevelse.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">4. Delning av information</div>
+            
+            <div class="subsection-title">Med andra användare</div>
+            <p>När du delar en kundvagn med andra användare blir följande information synlig för dem:</p>
+            <ul>
+                <li>Ditt användarnamn och profilbild</li>
+                <li>Produkter du lägger till i den delade kundvagnen</li>
+                <li>Ändringar du gör i den delade listan</li>
+            </ul>
+
+            <div class="subsection-title">Med tjänsteleverantörer</div>
+            <p>Vi delar begränsad information med pålitliga tjänsteleverantörer som hjälper oss att:</p>
+            <ul>
+                <li>Lagra data säkert (Supabase)</li>
+                <li>Skicka push-notifikationer (OneSignal)</li>
+                <li>Analysera appanvändning för förbättringar</li>
+                <li>Tillhandahålla väderdata</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">5. Datalagring och säkerhet</div>
+            
+            <div class="subsection-title">Säkerhetsåtgärder</div>
+            <ul>
+                <li>All data krypteras under överföring och lagring</li>
+                <li>Lösenord hashas med säkra algoritmer</li>
+                <li>Regelbundna säkerhetsuppdateringar och övervakning</li>
+                <li>Begränsad åtkomst till data baserat på behov</li>
+            </ul>
+
+            <div class="subsection-title">Datalagring</div>
+            <p>Din data lagras säkert i molnet via Supabase med servrar i EU. Vi behåller din information så länge ditt konto är aktivt eller enligt lag krävs.</p>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">6. Dina rättigheter (GDPR)</div>
+            
+            <p>Enligt GDPR har du följande rättigheter:</p>
+            <ul>
+                <li><strong>Åtkomst:</strong> Begära en kopia av dina personuppgifter</li>
+                <li><strong>Rättelse:</strong> Korrigera felaktig eller ofullständig information</li>
+                <li><strong>Radering:</strong> Begära att vi raderar dina personuppgifter</li>
+                <li><strong>Portabilitet:</strong> Få dina data i ett strukturerat format</li>
+                <li><strong>Invändning:</strong> Invända mot viss behandling av dina uppgifter</li>
+                <li><strong>Begränsning:</strong> Begära begränsad behandling av dina uppgifter</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p>📧 För att utöva dina rättigheter, kontakta oss på den e-postadress som anges nedan.</p>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">7. Cookies och spårning</div>
+            
+            <p>Vår app använder minimal spårning:</p>
+            <ul>
+                <li>Lokala inställningar lagras på din enhet</li>
+                <li>Anonymiserad användningsstatistik för appförbättringar</li>
+                <li>Inga reklamcookies eller tredjepartsspårning</li>
+                <li>Push-notifikationstoken för att skicka meddelanden</li>
+            </ul>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">8. Barn och integritet</div>
+            
+            <p>Vår app är inte avsedd för barn under 13 år. Vi samlar inte medvetet in personuppgifter från barn under 13 år. Om vi upptäcker att vi har samlat in sådan information kommer vi att radera den omedelbart.</p>
+        </div>
+
+        <div class="content-card">
+            <div class="section-title">9. Ändringar av integritetspolicyn</div>
+            
+            <p>Vi kan uppdatera denna integritetspolicy från tid till annan. Väsentliga ändringar kommer att meddelas via:</p>
+            <ul>
+                <li>Push-notifikation i appen</li>
+                <li>E-post till registrerade användare</li>
+                <li>Uppdatering av "Senast uppdaterad"-datumet ovan</li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <h3>Kontakta oss</h3>
+            <p>Om du har frågor om denna integritetspolicy eller hur vi hanterar dina personuppgifter:</p>
+            <p><strong>E-post:</strong> <a href="mailto:privacy@ullaredaren.se">privacy@ullaredaren.se</a></p>
+            <p><strong>Webbplats:</strong> <a href="https://ullaredaren.se">ullaredaren.se</a></p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Ullaredaren. Alla rättigheter förbehållna.</p>
+            <p>Denna policy följer GDPR och svensk dataskyddslagstiftning.</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll för interna länkar
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enkel analytics (utan personuppgifter)
+        if ('navigator' in window && 'sendBeacon' in navigator) {
+            window.addEventListener('beforeunload', function() {
+                // Skicka anonymiserad statistik om sidbesök
+                navigator.sendBeacon('/analytics', JSON.stringify({
+                    page: 'privacy-policy',
+                    timestamp: Date.now(),
+                    userAgent: navigator.userAgent.substring(0, 50) // Begränsad info
+                }));
+            });
+        }
+    </script>
+</body>
+</html>
