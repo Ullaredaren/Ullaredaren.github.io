@@ -55,6 +55,62 @@
             padding: 20px;
         }
 
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+            background: var(--card-background);
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .language-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .language-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .language-btn.active {
+            background: var(--primary-color);
+            box-shadow: 0 2px 8px rgba(119, 195, 210, 0.3);
+        }
+
+        .language-btn::after {
+            content: attr(data-lang);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .language-btn:hover::after {
+            opacity: 1;
+        }
+
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -62,6 +118,45 @@
             background: var(--card-background);
             border-radius: 16px;
             box-shadow: 0 4px 20px var(--shadow);
+            position: relative;
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px auto;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--primary-color), #5AB3C4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(119, 195, 210, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-icon::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--primary-color), #5AB3C4);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .app-icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+        }
+
+        .app-icon-fallback {
+            font-size: 36px;
+            color: white;
+            font-weight: 700;
         }
 
         .header h1 {
@@ -183,27 +278,51 @@
             font-weight: 400;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 16px;
-            }
+                 @media (max-width: 768px) {
+             .container {
+                 padding: 16px;
+             }
 
-            .header {
-                padding: 30px 20px;
-            }
+             .language-selector {
+                 top: 16px;
+                 right: 16px;
+                 padding: 6px;
+                 gap: 6px;
+             }
 
-            .header h1 {
-                font-size: 24px;
-            }
+             .language-btn {
+                 width: 36px;
+                 height: 36px;
+                 font-size: 18px;
+             }
 
-            .content-card {
-                padding: 24px 20px;
-            }
+             .header {
+                 padding: 30px 20px;
+                 margin-top: 60px;
+             }
 
-            .section-title {
-                font-size: 18px;
-            }
-        }
+             .header h1 {
+                 font-size: 24px;
+             }
+
+             .app-icon {
+                 width: 70px;
+                 height: 70px;
+             }
+
+             .app-icon img {
+                 width: 50px;
+                 height: 50px;
+             }
+
+             .content-card {
+                 padding: 24px 20px;
+             }
+
+             .section-title {
+                 font-size: 18px;
+             }
+         }
 
         /* Smooth scrolling */
         html {
@@ -219,11 +338,25 @@
     </style>
 </head>
 <body>
+    <!-- Språkväljare -->
+    <div class="language-selector">
+        <button class="language-btn active" data-lang="SV" onclick="changeLanguage('sv')" title="Svenska">🇸🇪</button>
+        <button class="language-btn" data-lang="EN" onclick="changeLanguage('en')" title="English">🇬🇧</button>
+        <button class="language-btn" data-lang="DA" onclick="changeLanguage('da')" title="Dansk">🇩🇰</button>
+        <button class="language-btn" data-lang="NO" onclick="changeLanguage('no')" title="Norsk">🇳🇴</button>
+    </div>
+
     <div class="container">
         <div class="header">
-            <h1>Integritetspolicy</h1>
-            <div class="subtitle">Ullaredaren Shopping App</div>
-            <div class="date">Senast uppdaterad: December 2024</div>
+            <!-- App ikon -->
+            <div class="app-icon">
+                <img src="Icon.png" alt="Ullaredaren App Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="app-icon-fallback" style="display: none;">U</div>
+            </div>
+            
+            <h1 data-translate="privacy_policy_title">Integritetspolicy</h1>
+            <div class="subtitle" data-translate="app_name">Ullaredaren Shopping App</div>
+            <div class="date" data-translate="last_updated">Senast uppdaterad: December 2024</div>
         </div>
 
         <div class="content-card">
@@ -376,6 +509,69 @@
     </div>
 
     <script>
+        // Översättningar
+        const translations = {
+            sv: {
+                privacy_policy_title: "Integritetspolicy",
+                app_name: "Ullaredaren Shopping App",
+                last_updated: "Senast uppdaterad: December 2024"
+            },
+            en: {
+                privacy_policy_title: "Privacy Policy",
+                app_name: "Ullaredaren Shopping App",
+                last_updated: "Last updated: December 2024"
+            },
+            da: {
+                privacy_policy_title: "Privatlivspolitik",
+                app_name: "Ullaredaren Shopping App",
+                last_updated: "Sidst opdateret: December 2024"
+            },
+            no: {
+                privacy_policy_title: "Personvernerklæring",
+                app_name: "Ullaredaren Shopping App",
+                last_updated: "Sist oppdatert: Desember 2024"
+            }
+        };
+
+        // Aktuellt språk
+        let currentLanguage = 'sv';
+
+        // Språkbyte funktion
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Uppdatera aktiv knapp
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-lang="${lang.toUpperCase()}"]`).classList.add('active');
+            
+            // Uppdatera översättningar
+            updateTranslations(lang);
+            
+            // Spara språkval
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // Uppdatera översättningar
+        function updateTranslations(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+        }
+
+        // Ladda sparat språk vid sidladdning
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'sv';
+            if (savedLanguage !== 'sv') {
+                changeLanguage(savedLanguage);
+            }
+        });
+
         // Smooth scroll för interna länkar
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -397,10 +593,11 @@
                 navigator.sendBeacon('/analytics', JSON.stringify({
                     page: 'privacy-policy',
                     timestamp: Date.now(),
+                    language: currentLanguage,
                     userAgent: navigator.userAgent.substring(0, 50) // Begränsad info
                 }));
             });
         }
     </script>
 </body>
-</html>
+</html> 
