@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Ljust tema */
             --primary-color: #77C3D2;
             --dark-color: #374957;
             --white-color: #FEFFFF;
@@ -21,7 +20,6 @@
 
         @media (prefers-color-scheme: dark) {
             :root {
-                /* Mörkt tema */
                 --primary-color: #314A57;
                 --dark-color: #EBEBEB;
                 --white-color: #252225;
@@ -41,12 +39,10 @@
         }
 
         body {
-            font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background-color: var(--background);
             color: var(--text-primary);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -84,14 +80,9 @@
             position: relative;
         }
 
-        .language-btn:hover {
-            background: var(--primary-color);
-            transform: scale(1.05);
-        }
-
+        .language-btn:hover,
         .language-btn.active {
             background: var(--primary-color);
-            box-shadow: 0 2px 8px rgba(119, 195, 210, 0.3);
         }
 
         .language-btn::after {
@@ -118,33 +109,6 @@
             background: var(--card-background);
             border-radius: 16px;
             box-shadow: 0 4px 20px var(--shadow);
-            position: relative;
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px auto;
-            border-radius: 18px;
-            background: linear-gradient(135deg, var(--primary-color), #5AB3C4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 32px rgba(119, 195, 210, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-icon::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, var(--primary-color), #5AB3C4);
-            border-radius: 20px;
-            z-index: -1;
         }
 
         .app-icon img {
@@ -153,30 +117,16 @@
             border-radius: 12px;
         }
 
-        .app-icon-fallback {
-            font-size: 36px;
-            color: white;
-            font-weight: 700;
-        }
-
-        .header h1 {
+        h1, .section-title {
             font-size: 28px;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 12px;
         }
 
-        .header .subtitle {
-            font-size: 16px;
-            font-weight: 500;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .header .date {
-            font-size: 14px;
+        .subtitle, .date, p, li {
+            font-size: 15px;
             font-weight: 400;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
 
         .content-card {
@@ -188,55 +138,12 @@
             border: 1px solid var(--border-color);
         }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--primary-color);
-        }
-
-        .subsection-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 20px 0 12px 0;
-        }
-
-        p {
-            font-size: 15px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            line-height: 1.7;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 16px;
-        }
-
-        li {
-            font-size: 15px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
         .highlight-box {
             background: linear-gradient(135deg, var(--primary-color)08, var(--primary-color)12);
             border: 1px solid var(--primary-color);
             border-radius: 12px;
             padding: 20px;
             margin: 20px 0;
-        }
-
-        .highlight-box p {
-            color: var(--text-primary);
-            margin-bottom: 0;
-            font-weight: 500;
         }
 
         .contact-info {
@@ -248,339 +155,199 @@
             margin-top: 32px;
         }
 
-        .contact-info h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 12px;
-        }
-
-        .contact-info p {
-            margin-bottom: 8px;
-        }
-
-        .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
         .footer {
             text-align: center;
             margin-top: 40px;
             padding: 20px;
             color: var(--text-secondary);
             font-size: 14px;
-            font-weight: 400;
-        }
-
-                 @media (max-width: 768px) {
-             .container {
-                 padding: 16px;
-             }
-
-             .language-selector {
-                 top: 16px;
-                 right: 16px;
-                 padding: 6px;
-                 gap: 6px;
-             }
-
-             .language-btn {
-                 width: 36px;
-                 height: 36px;
-                 font-size: 18px;
-             }
-
-             .header {
-                 padding: 30px 20px;
-                 margin-top: 60px;
-             }
-
-             .header h1 {
-                 font-size: 24px;
-             }
-
-             .app-icon {
-                 width: 70px;
-                 height: 70px;
-             }
-
-             .app-icon img {
-                 width: 50px;
-                 height: 50px;
-             }
-
-             .content-card {
-                 padding: 24px 20px;
-             }
-
-             .section-title {
-                 font-size: 18px;
-             }
-         }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Accessibility improvements */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Språkväljare -->
     <div class="language-selector">
-        <button class="language-btn active" data-lang="SV" onclick="changeLanguage('sv')" title="Svenska">🇸🇪</button>
-        <button class="language-btn" data-lang="EN" onclick="changeLanguage('en')" title="English">🇬🇧</button>
-        <button class="language-btn" data-lang="DA" onclick="changeLanguage('da')" title="Dansk">🇩🇰</button>
-        <button class="language-btn" data-lang="NO" onclick="changeLanguage('no')" title="Norsk">🇳🇴</button>
+        <button class="language-btn active" data-lang="SV" onclick="changeLanguage('sv')">🇸🇪</button>
+        <button class="language-btn" data-lang="EN" onclick="changeLanguage('en')">🇬🇧</button>
+        <button class="language-btn" data-lang="DA" onclick="changeLanguage('da')">🇩🇰</button>
+        <button class="language-btn" data-lang="NO" onclick="changeLanguage('no')">🇳🇴</button>
     </div>
 
     <div class="container">
         <div class="header">
-            <!-- App ikon -->
             <div class="app-icon">
-                <img src="https://github.com/Ullaredaren/Ullaredaren.github.io/blob/main/icon.jpg?raw=true" alt="Ullaredaren App Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="app-icon-fallback" style="display: none;">U</div>
+                <img src="https://github.com/Ullaredaren/Ullaredaren.github.io/blob/main/icon.jpg?raw=true" alt="App Icon">
             </div>
-            
             <h1 data-translate="privacy_policy_title">Integritetspolicy</h1>
             <div class="subtitle" data-translate="app_name">Ullaredaren Shopping App</div>
-            <div class="date" data-translate="last_updated">Senast uppdaterad: Juli 2025</div>
+            <div class="date" data-translate="last_updated">Senast uppdaterad: December 2024</div>
         </div>
 
         <div class="content-card">
-            <div class="section-title" data-translate="section_1_title">1. Inledning</div>
-            <p data-translate="section_1_intro">Välkommen till Ullaredaren! Vi värnar om din integritet och är engagerade i att skydda dina personuppgifter. Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar din information när du använder vår shoppingapp.</p>
-            
+            <div class="section-title" data-translate="section_1_title">Inledning</div>
+            <p data-translate="section_1_intro">Välkommen till Ullaredaren! Jag värnar om din integritet och vill tydligt klargöra att jag inte delar någon personlig eller icke-personlig information när du använder mina tjänster.</p>
             <div class="highlight-box">
-                <p data-translate="section_1_highlight">🔒 Din integritet är viktig för oss. Vi samlar endast in den information som behövs för att ge dig den bästa shoppingupplevelsen.</p>
+                <p data-translate="section_1_highlight">🔒 Din integritet är viktig för mig. Jag delar inte din information med tredje part.</p>
             </div>
         </div>
 
         <div class="content-card">
-            <div class="section-title">2. Information vi samlar in</div>
-            
-            <div class="subsection-title">Kontoinformation</div>
-            <ul>
-                <li>E-postadress (för inloggning och kontoskapande)</li>
-                <li>Användarnamn och profilbild (valfritt)</li>
-                <li>Lösenord (krypterat och säkert lagrat)</li>
-            </ul>
-
-            <div class="subsection-title">Shoppingdata</div>
-            <ul>
-                <li>Inköpslistor och produkter du lägger till</li>
-                <li>Produktbilder du tar eller laddar upp</li>
-                <li>Delningsinställningar för kundvagnar</li>
-                <li>Prishistorik och shoppingpreferenser</li>
-            </ul>
-
-            <div class="subsection-title">Teknisk information</div>
-            <ul>
-                <li>Enhetstyp och operativsystem</li>
-                <li>App-version och användningsstatistik</li>
-                <li>Kraschrapporter för att förbättra appen</li>
-                <li>Push-notifikationstoken (för meddelanden)</li>
+            <div class="section-title" data-translate="section_2_title">Datainsamling</div>
+            <p data-translate="section_2_intro">När du använder min Ullaredaren-app samlar jag in vissa typer av information. Denna data hjälper mig att förbättra tjänsterna och ge en bättre användarupplevelse.</p>
+            <ul data-translate="section_2_list">
+                <li>Kontaktinformation: Detta inkluderar detaljer som din e-postadress, som kan användas för kontokonfiguration eller kommunikation.</li>
+                <li>Användarinnehåll: Allt innehåll som du skapar, laddar upp eller delar i appen, som foton, text eller annat material.</li>
+                <li>Identifierare: Unika identifierare, enhets-ID eller andra identifierare som hjälper mig att personalisera din appupplevelse eller spåra appanvändning för analysändamål.</li>
+                <li>Diagnostik: Information relaterad till appprestanda, kraschrapporter och annan diagnostisk data som hjälper mig identifiera och åtgärda tekniska problem.</li>
             </ul>
         </div>
 
         <div class="content-card">
-            <div class="section-title">3. Hur vi använder din information</div>
-            
-            <p>Vi använder din information för att:</p>
-            <ul>
-                <li><strong>Tillhandahålla tjänsten:</strong> Hantera ditt konto och dina inköpslistor</li>
-                <li><strong>Förbättra upplevelsen:</strong> Personalisera innehåll och funktioner</li>
-                <li><strong>Kommunikation:</strong> Skicka viktiga uppdateringar och push-notifikationer</li>
-                <li><strong>Säkerhet:</strong> Skydda mot bedrägerier och missbruk</li>
-                <li><strong>Utveckling:</strong> Förbättra appen baserat på användningsdata</li>
-            </ul>
-
-            <div class="highlight-box">
-                <p>💡 Vi säljer aldrig din personliga information till tredje part. Din data används endast för att förbättra din shoppingupplevelse.</p>
-            </div>
+            <div class="section-title" data-translate="section_3_title">Användning av data</div>
+            <p data-translate="section_3_text">Jag använder insamlad data för att förbättra appens funktionalitet och användarupplevelse. Data används aldrig för reklam eller försäljning till tredje part.</p>
         </div>
 
         <div class="content-card">
-            <div class="section-title">4. Delning av information</div>
-            
-            <div class="subsection-title">Med andra användare</div>
-            <p>När du delar en kundvagn med andra användare blir följande information synlig för dem:</p>
-            <ul>
-                <li>Ditt användarnamn och profilbild</li>
-                <li>Produkter du lägger till i den delade kundvagnen</li>
-                <li>Ändringar du gör i den delade listan</li>
-            </ul>
-
-            <div class="subsection-title">Med tjänsteleverantörer</div>
-            <p>Vi delar begränsad information med pålitliga tjänsteleverantörer som hjälper oss att:</p>
-            <ul>
-                <li>Lagra data säkert (Supabase)</li>
-                <li>Skicka push-notifikationer (OneSignal)</li>
-                <li>Analysera appanvändning för förbättringar</li>
-                <li>Tillhandahålla väderdata</li>
-            </ul>
+            <div class="section-title" data-translate="section_4_title">Datasäkerhet</div>
+            <p data-translate="section_4_text">Jag tar säkerheten för dina data på allvar och implementerar lämpliga åtgärder för att skydda dem mot obehörig åtkomst eller avslöjande.</p>
         </div>
 
         <div class="content-card">
-            <div class="section-title">5. Datalagring och säkerhet</div>
-            
-            <div class="subsection-title">Säkerhetsåtgärder</div>
-            <ul>
-                <li>All data krypteras under överföring och lagring</li>
-                <li>Lösenord hashas med säkra algoritmer</li>
-                <li>Regelbundna säkerhetsuppdateringar och övervakning</li>
-                <li>Begränsad åtkomst till data baserat på behov</li>
-            </ul>
-
-            <div class="subsection-title">Datalagring</div>
-            <p>Din data lagras säkert i molnet via Supabase med servrar i EU. Vi behåller din information så länge ditt konto är aktivt eller enligt lag krävs.</p>
+            <div class="section-title" data-translate="section_5_title">Ändringar av denna integritetspolicy</div>
+            <p data-translate="section_5_text">Jag förbehåller mig rätten att uppdatera denna integritetspolicy när som helst. Jag kommer att meddela dig om eventuella ändringar genom att publicera den nya integritetspolicyn på denna sida och uppdatera datumet 'Senast uppdaterad'.</p>
         </div>
 
-        <div class="content-card">
-            <div class="section-title">6. Dina rättigheter (GDPR)</div>
-            
-            <p>Enligt GDPR har du följande rättigheter:</p>
-            <ul>
-                <li><strong>Åtkomst:</strong> Begära en kopia av dina personuppgifter</li>
-                <li><strong>Rättelse:</strong> Korrigera felaktig eller ofullständig information</li>
-                <li><strong>Radering:</strong> Begära att vi raderar dina personuppgifter</li>
-                <li><strong>Portabilitet:</strong> Få dina data i ett strukturerat format</li>
-                <li><strong>Invändning:</strong> Invända mot viss behandling av dina uppgifter</li>
-                <li><strong>Begränsning:</strong> Begära begränsad behandling av dina uppgifter</li>
-            </ul>
-
-            <div class="highlight-box">
-                <p>📧 För att utöva dina rättigheter, kontakta oss på den e-postadress som anges nedan.</p>
-            </div>
+        <div class="contact-info">
+            <h3 data-translate="contact_title">Kontakta oss</h3>
+            <p data-translate="contact_text">Om du har frågor kontakta mig via appen.</p>
         </div>
 
-        <div class="content-card">
-            <div class="section-title">7. Cookies och spårning</div>
-            
-            <p>Vår app använder minimal spårning:</p>
-            <ul>
-                <li>Lokala inställningar lagras på din enhet</li>
-                <li>Anonymiserad användningsstatistik för appförbättringar</li>
-                <li>Inga reklamcookies eller tredjepartsspårning</li>
-                <li>Push-notifikationstoken för att skicka meddelanden</li>
-            </ul>
+        <div class="footer">
+            <p>&copy; 2025 Ullaredaren</p>
         </div>
     </div>
 
     <script>
-        // Översättningar
         const translations = {
             sv: {
                 privacy_policy_title: "Integritetspolicy",
                 app_name: "Ullaredaren Shopping App",
-                last_updated: "Senast uppdaterad: December 2024",
+                last_updated: "Senast uppdaterad: Juli 2025",
                 section_1_title: "1. Inledning",
-                section_1_intro: "Välkommen till Ullaredaren! Vi värnar om din integritet och är engagerade i att skydda dina personuppgifter. Denna integritetspolicy förklarar hur vi samlar in, använder och skyddar din information när du använder vår shoppingapp.",
-                section_1_highlight: "🔒 Din integritet är viktig för oss. Vi samlar endast in den information som behövs för att ge dig den bästa shoppingupplevelsen."
+                section_1_intro: "Välkommen till Ullaredaren! Jag värnar om din integritet och vill tydligt klargöra att jag inte delar någon personlig eller icke-personlig information när du använder mina tjänster.",
+                section_1_highlight: "🔒 Din integritet är viktig för mig. Jag delar inte din information med tredje part.",
+                section_2_title: "2. Datainsamling",
+                section_2_intro: "När du använder min Ullaredaren-app samlar jag in vissa typer av information. Denna data hjälper mig att förbättra tjänsterna och ge en bättre användarupplevelse.",
+                section_2_list: [
+                    "Kontaktinformation: Detta inkluderar detaljer som din e-postadress, som kan användas för kontokonfiguration eller kommunikation.",
+                    "Användarinnehåll: Allt innehåll som du skapar, laddar upp eller delar i appen, som foton, text eller annat material.",
+                    "Identifierare: Unika identifierare, enhets-ID eller andra identifierare som hjälper mig att personalisera din appupplevelse eller spåra appanvändning för analysändamål.",
+                    "Diagnostik: Information relaterad till appprestanda, kraschrapporter och annan diagnostisk data som hjälper mig identifiera och åtgärda tekniska problem."
+                ],
+                section_3_title: "3. Användning av data",
+                section_3_text: "Jag använder insamlad data för att förbättra appens funktionalitet och användarupplevelse. Data används aldrig för reklam eller försäljning till tredje part.",
+                section_4_title: "4. Datasäkerhet",
+                section_4_text: "Jag tar säkerheten för dina data på allvar och implementerar lämpliga åtgärder för att skydda dem mot obehörig åtkomst eller avslöjande.",
+                section_5_title: "5. Ändringar av denna integritetspolicy",
+                section_5_text: "Jag förbehåller mig rätten att uppdatera denna integritetspolicy när som helst. Jag kommer att meddela dig om eventuella ändringar genom att publicera den nya integritetspolicyn på denna sida och uppdatera datumet 'Senast uppdaterad'.",
+                contact_title: "Kontakta oss",
+                contact_text: "Om du har frågor kontakta mig via appen."
             },
             en: {
                 privacy_policy_title: "Privacy Policy",
-                app_name: "Ullaredaren Shopping App", 
-                last_updated: "Last updated: December 2024",
+                app_name: "Ullaredaren Shopping App",
+                last_updated: "Last updated: July 2025",
                 section_1_title: "1. Introduction",
-                section_1_intro: "Welcome to Ullaredaren! We value your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use and protect your information when you use our shopping app.",
-                section_1_highlight: "🔒 Your privacy is important to us. We only collect the information needed to give you the best shopping experience."
+                section_1_intro: "Welcome to Ullaredaren! I value your privacy and want to clearly state that I do not share any personal or non-personal information when you use my services.",
+                section_1_highlight: "🔒 Your privacy is important to me. I do not share your information with third parties.",
+                section_2_title: "2. Data Collection",
+                section_2_intro: "When you use my Ullaredaren app, I collect certain types of information. This data helps me improve the services and provide a better user experience.",
+                section_2_list: [
+                    "Contact information: This includes details such as your email address, which can be used for account setup or communication.",
+                    "User content: Any content you create, upload, or share within the app, such as photos, text, or other material.",
+                    "Identifiers: Unique identifiers, device IDs, or other identifiers that help me personalize your app experience or track app usage for analytics purposes.",
+                    "Diagnostics: Information related to app performance, crash reports, and other diagnostic data that helps me identify and fix technical issues."
+                ],
+                section_3_title: "3. Use of Data",
+                section_3_text: "I use the collected data to improve the app's functionality and user experience. Data is never used for advertising or sold to third parties.",
+                section_4_title: "4. Data Security",
+                section_4_text: "I take the security of your data seriously and implement appropriate measures to protect it from unauthorized access or disclosure.",
+                section_5_title: "5. Changes to this Privacy Policy",
+                section_5_text: "I reserve the right to update this privacy policy at any time. I will notify you of any changes by posting the new privacy policy on this page and updating the 'Last updated' date.",
+                contact_title: "Contact Us",
+                contact_text: "If you have any questions, please contact me via the app."
             },
             da: {
-                privacy_policy_title: "Privatlivspolitik",
+                privacy_policy_title: "Fortrolighedspolitik",
                 app_name: "Ullaredaren Shopping App",
-                last_updated: "Sidst opdateret: December 2024",
-                section_1_title: "1. Indledning",
-                section_1_intro: "Velkommen til Ullaredaren! Vi værdsætter dit privatliv og er forpligtet til at beskytte dine personlige data. Denne privatlivspolitik forklarer, hvordan vi indsamler, bruger og beskytter dine oplysninger, når du bruger vores shopping-app.",
-                section_1_highlight: "🔒 Dit privatliv er vigtigt for os. Vi indsamler kun de oplysninger, der er nødvendige for at give dig den bedste shopping-oplevelse."
+                last_updated: "Sidst opdateret: Juli 2025",
+                section_1_title: "1. Introduktion",
+                section_1_intro: "Velkommen til Ullaredaren! Jeg værner om dit privatliv og vil tydeligt gøre klart, at jeg ikke deler nogen personlige eller ikke-personlige oplysninger, når du bruger mine tjenester.",
+                section_1_highlight: "🔒 Dit privatliv er vigtigt for mig. Jeg deler ikke dine oplysninger med tredjepart.",
+                section_2_title: "2. Dataindsamling",
+                section_2_intro: "Når du bruger min Ullaredaren-app, indsamler jeg visse typer oplysninger. Disse data hjælper mig med at forbedre tjenesterne og give en bedre brugeroplevelse.",
+                section_2_list: [
+                    "Kontaktinformation: Dette inkluderer detaljer som din e-mailadresse, som kan bruges til kontoopsætning eller kommunikation.",
+                    "Brugerindhold: Alt indhold, du opretter, uploader eller deler i appen, såsom fotos, tekst eller andet materiale.",
+                    "Identifikatorer: Unikke identifikatorer, enheds-ID'er eller andre identifikatorer, der hjælper mig med at personalisere din appoplevelse eller spore appbrug til analyseformål.",
+                    "Diagnostik: Oplysninger relateret til app-ydeevne, fejlrapporter og andre diagnostiske data, der hjælper mig med at identificere og løse tekniske problemer."
+                ],
+                section_3_title: "3. Brug af data",
+                section_3_text: "Jeg bruger de indsamlede data til at forbedre appens funktionalitet og brugeroplevelse. Data bruges aldrig til reklame eller salg til tredjepart.",
+                section_4_title: "4. Datasikkerhed",
+                section_4_text: "Jeg tager sikkerheden af dine data alvorligt og implementerer passende foranstaltninger for at beskytte dem mod uautoriseret adgang eller videregivelse.",
+                section_5_title: "5. Ændringer af denne fortrolighedspolitik",
+                section_5_text: "Jeg forbeholder mig retten til at opdatere denne fortrolighedspolitik når som helst. Jeg vil informere dig om eventuelle ændringer ved at offentliggøre den nye fortrolighedspolitik på denne side og opdatere datoen 'Sidst opdateret'.",
+                contact_title: "Kontakt os",
+                contact_text: "Hvis du har spørgsmål, kontakt mig venligst via appen."
             },
             no: {
-                privacy_policy_title: "Personvernerklæring",
+                privacy_policy_title: "Personvernregler",
                 app_name: "Ullaredaren Shopping App",
-                last_updated: "Sist oppdatert: Desember 2024",
-                section_1_title: "1. Innledning",
-                section_1_intro: "Velkommen til Ullaredaren! Vi verdsetter ditt personvern og er forpliktet til å beskytte dine personopplysninger. Denne personvernerklæringen forklarer hvordan vi samler inn, bruker og beskytter din informasjon når du bruker vår shopping-app.",
-                section_1_highlight: "🔒 Ditt personvern er viktig for oss. Vi samler kun inn den informasjonen som trengs for å gi deg den beste shopping-opplevelsen."
+                last_updated: "Sist oppdatert: Juli 2025",
+                section_1_title: "1. Introduksjon",
+                section_1_intro: "Velkommen til Ullaredaren! Jeg verdsetter ditt personvern og vil tydelig angi at jeg ikke deler noen personlig eller ikke-personlig informasjon når du bruker tjenestene mine.",
+                section_1_highlight: "🔒 Ditt personvern er viktig for meg. Jeg deler ikke informasjonen din med tredjeparter.",
+                section_2_title: "2. Datainnsamling",
+                section_2_intro: "Når du bruker Ullaredaren-appen min, samler jeg inn visse typer informasjon. Disse dataene hjelper meg med å forbedre tjenestene og gi en bedre brukeropplevelse.",
+                section_2_list: [
+                    "Kontaktinformasjon: Dette inkluderer detaljer som e-postadressen din, som kan brukes til kontokonfigurasjon eller kommunikasjon.",
+                    "Brukerinnhold: Alt innhold du oppretter, laster opp eller deler i appen, for eksempel bilder, tekst eller annet materiale.",
+                    "Identifikatorer: Unike identifikatorer, enhets-ID-er eller andre identifikatorer som hjelper meg å tilpasse appopplevelsen din eller spore appbruk for analyseformål.",
+                    "Diagnostikk: Informasjon relatert til appytelse, krasjrapporter og annen diagnostisk data som hjelper meg med å identifisere og fikse tekniske problemer."
+                ],
+                section_3_title: "3. Bruk av data",
+                section_3_text: "Jeg bruker de innsamlede dataene for å forbedre appens funksjonalitet og brukeropplevelse. Data brukes aldri til reklame eller salg til tredjeparter.",
+                section_4_title: "4. Datasikkerhet",
+                section_4_text: "Jeg tar sikkerheten til dataene dine på alvor og implementerer passende tiltak for å beskytte dem mot uautorisert tilgang eller avsløring.",
+                section_5_title: "5. Endringer i denne personvernreglene",
+                section_5_text: "Jeg forbeholder meg retten til å oppdatere denne personvernreglene når som helst. Jeg vil varsle deg om eventuelle endringer ved å legge ut den nye personvernreglene på denne siden og oppdatere datoen 'Sist oppdatert'.",
+                contact_title: "Kontakt oss",
+                contact_text: "Hvis du har spørsmål, vennligst kontakt meg via appen."
             }
         };
 
-        // Aktuellt språk
-        let currentLanguage = 'sv';
-
-        // Språkbyte funktion
         function changeLanguage(lang) {
-            currentLanguage = lang;
-            
-            // Uppdatera aktiv knapp
-            document.querySelectorAll('.language-btn').forEach(btn => {
-                btn.classList.remove('active');
+            const btns = document.querySelectorAll('.language-btn');
+            btns.forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang').toLowerCase() === lang);
             });
-            document.querySelector(`[data-lang="${lang.toUpperCase()}"]`).classList.add('active');
-            
-            // Uppdatera översättningar
-            updateTranslations(lang);
-            
-            // Spara språkval
-            localStorage.setItem('selectedLanguage', lang);
-        }
 
-        // Uppdatera översättningar
-        function updateTranslations(lang) {
             const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
+            elements.forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (key in translations[lang]) {
+                    if (Array.isArray(translations[lang][key])) {
+                        // If it's a list, render as bullet points inside the element
+                        el.innerHTML = translations[lang][key].map(item => `<li>${item}</li>`).join('');
+                    } else {
+                        el.textContent = translations[lang][key];
+                    }
                 }
             });
         }
 
-        // Ladda sparat språk vid sidladdning
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedLanguage = localStorage.getItem('selectedLanguage') || 'sv';
-            if (savedLanguage !== 'sv') {
-                changeLanguage(savedLanguage);
-            }
-        });
-
-        // Smooth scroll för interna länkar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Enkel analytics (utan personuppgifter)
-        if ('navigator' in window && 'sendBeacon' in navigator) {
-            window.addEventListener('beforeunload', function() {
-                // Skicka anonymiserad statistik om sidbesök
-                navigator.sendBeacon('/analytics', JSON.stringify({
-                    page: 'privacy-policy',
-                    timestamp: Date.now(),
-                    language: currentLanguage,
-                    userAgent: navigator.userAgent.substring(0, 50) // Begränsad info
-                }));
-            });
-        }
+        // Init default language
+        changeLanguage('sv');
     </script>
 </body>
-</html> 
+</html>
