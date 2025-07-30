@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integritetspolicy - Ullaredaren</title>
+    <title>Gekås App – Ullaredaren</title>
+    <meta name="description" content="Ladda ner Gekås App – din smarta shoppingguide till Ullared med inköpslista, kundvagn, parkering och väder.">
+    <meta name="keywords" content="Gekås App, Ullaredaren, Ullared, Shoppingapp Gekås, kundvagn app, inköpslista Gekås">
+    <link rel="canonical" href="https://ullaredaren.github.io" />
+    <meta property="og:title" content="Gekås App – Ullaredaren">
+    <meta property="og:description" content="Den officiella appen för shopping i Ullared. Inköpslista, väder, parkering och mer.">
+    <meta property="og:image" content="https://github.com/Ullaredaren/Ullaredaren.github.io/blob/main/icon.jpg?raw=true">
+    <meta property="og:url" content="https://ullaredaren.github.io">
+    <meta name="robots" content="index, follow">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -102,6 +110,71 @@
             opacity: 1;
         }
 
+        .download-banner {
+            background: linear-gradient(135deg, var(--primary-color), #5BA8B5);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(119, 195, 210, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .download-banner h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-banner p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .app-store-btn:hover {
+            background: rgba(0,0,0,1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -173,6 +246,14 @@
     </div>
 
     <div class="container">
+        <div class="download-banner">
+            <h2 data-translate="download_title">LADDA NER HÄR, PÅ APPSTORE</h2>
+            <p data-translate="download_description">Din smarta shoppingguide till Ullared med inköpslista, kundvagn, parkering och väder</p>
+            <a href="https://apps.apple.com/se/app/ullaredaren/id6468036174" class="app-store-btn" data-translate="download_button">
+                📱 Ladda ner från App Store
+            </a>
+        </div>
+
         <div class="header">
             <div class="app-icon">
                 <img src="https://github.com/Ullaredaren/Ullaredaren.github.io/blob/main/icon.jpg?raw=true" alt="App Icon">
@@ -229,6 +310,9 @@
     <script>
         const translations = {
             sv: {
+                download_title: "LADDA NER HÄR, PÅ APPSTORE",
+                download_description: "Din smarta shoppingguide till Ullared med inköpslista, kundvagn, parkering och väder",
+                download_button: "📱 Ladda ner från App Store",
                 privacy_policy_title: "Integritetspolicy",
                 app_name: "Ullaredaren Shopping App",
                 last_updated: "Senast uppdaterad: Juli 2025",
@@ -253,6 +337,9 @@
                 contact_text: "Om du har frågor kontakta mig via appen."
             },
             en: {
+                download_title: "DOWNLOAD HERE, ON APPSTORE",
+                download_description: "Your smart shopping guide to Ullared with shopping list, cart, parking and weather",
+                download_button: "📱 Download from App Store",
                 privacy_policy_title: "Privacy Policy",
                 app_name: "Ullaredaren Shopping App",
                 last_updated: "Last updated: July 2025",
@@ -277,6 +364,9 @@
                 contact_text: "If you have any questions, please contact me via the app."
             },
             da: {
+                download_title: "DOWNLOAD HER, PÅ APPSTORE",
+                download_description: "Din smarte shoppinguide til Ullared med indkøbsliste, kurv, parkering og vejr",
+                download_button: "📱 Download fra App Store",
                 privacy_policy_title: "Fortrolighedspolitik",
                 app_name: "Ullaredaren Shopping App",
                 last_updated: "Sidst opdateret: Juli 2025",
@@ -301,6 +391,9 @@
                 contact_text: "Hvis du har spørgsmål, kontakt mig venligst via appen."
             },
             no: {
+                download_title: "LAST NED HER, PÅ APPSTORE",
+                download_description: "Din smarte handleguide til Ullared med handleliste, handlekurv, parkering og vær",
+                download_button: "📱 Last ned fra App Store",
                 privacy_policy_title: "Personvernregler",
                 app_name: "Ullaredaren Shopping App",
                 last_updated: "Sist oppdatert: Juli 2025",
